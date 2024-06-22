@@ -1,0 +1,58 @@
+# Demo application.yml file
+
+server:
+  port: YOUR_DESIRED_PORT
+
+spring:
+  application:
+    name: YOUR_APPLICATION_NAME
+
+  # Database Configuration
+  datasource:
+    url: YOUR_DB_URI
+  h2:
+    console:
+      enabled: true
+      path: YOUR_PATH_TO_ACCESS_H2_CONSOLE
+
+  # RabbitMQ Configuration
+  rabbitmq:
+    host: YOUR_RABBITMQ_HOST
+    port: YOUR_RABBITMQ_PORT
+    username: YOUR_RABBITMQ_USERNAME
+    password: YOUR_RABBITMQ_PASSWORD
+    connection-timeout: 5000
+    requested-heartbeat: 30
+    listener:
+      simple:
+        retry:
+          enabled: true
+          initial-interval: 3000
+          max-attempts: 5
+          max-interval: 10000
+          multiplier: 2
+
+  # Spring Security Configuration
+  security:
+    user:
+      name: YOUR_SPRING_SECURITY_USER
+      password: YOUR_SPRING_SECURITY_PASSWORD
+
+# JWT Configuration
+jwt:
+  secret:
+    key: YOUR_JWT_SECRET_KEY
+  access:
+    token:
+      expiry: 3600000  # 1 hour in milliseconds
+token:
+  email:
+    expiry: 300000  # 5 minutes in milliseconds
+  refresh:
+    expiry: 86400000  # 24 hours in milliseconds
+
+# RabbitMQ
+rabbitmq:
+  queues: YOUR_QUEUE_NAME
+  exchanges: YOUR_EXCHANGE_NAME
+  routing-keys: YOUR_ROUTING_KEY
